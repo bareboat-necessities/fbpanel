@@ -1,3 +1,13 @@
+## Version: 7.1
+Date: 2019-04-26 15:26:26
+
+ * Removed -Werror flag. Was causing build to fail on gtkbgbox.c
+ * Added stats for multicore processors.
+ * Add Codeblock workspace and project files.
+ * g_type_class_add_private() was deprecated.
+ * Updated gtk+-2.0 to require at least 2.24.32
+ * Fixed GLib-GObject-CRITICAL assertions showing when loading fbpanel
+ * Updated logo.png to represent XWindows 
 
 ## Version: 7.0
 Date: 2015-12-05 08:25:36
