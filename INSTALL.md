@@ -23,5 +23,5 @@ su -c "make install"
 
 # Dependencies
 Deps:
- * core - gtk2 2.17 or higher
+ * core - gtk2 2.24.32 or higher
  * plugin `foo` - bar 1.0

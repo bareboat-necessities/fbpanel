@@ -2,3 +2,5 @@ config.mk
 config.h
 repl.py
 .config/*.pyc
+*.layout
+*.depend
