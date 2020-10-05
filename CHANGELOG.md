@@ -1,6 +1,27 @@
+## Version: 7.1
+Date: 2019-04-26 15:26:26
+
+ * Removed -Werror flag. Was causing build to fail on gtkbgbox.c
+ * Added stats for multicore processors.
+ * Add Codeblock workspace and project files.
+ * g_type_class_add_private() was deprecated.
+ * Updated gtk+-2.0 to require at least 2.24.32
+ * Fixed GLib-GObject-CRITICAL assertions showing when loading fbpanel
+ * Updated logo.png to represent XWindows 
+
+## Version: develop
+Date: 2015-12-15 11:25:04
+
+ * [#19] enable pango markup interpretation by genmon plugin
+ * [#14] give gravatar file unique name to avoid collisions with other panels
+ * [#11] new plugin: user menu with gravatar icon
+
+[#19]: https://github.com/aanatoly/fbpanel/pull/19
+[#14]: https://github.com/aanatoly/fbpanel/issues/14
+[#11]: https://github.com/aanatoly/fbpanel/issues/11
 
 ## Version: 7.0
-Date: 2015-12-05 08:25:36
+Date: 2015-12-05 08:34:21
 
  * [#12] fix menu position for top panel
  * [#11] new plugin: user menu with gravatar icon
