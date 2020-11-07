@@ -29,7 +29,7 @@ DOCKER_CONTAINER_ID=$(docker ps --last 4 | grep $CONTAINER_DISTRO | awk '{print 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get update
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install apt-transport-https wget curl gnupg2
 docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install dpkg-dev debhelper devscripts equivs pkg-config apt-utils fakeroot
-docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install libgtk2.0-dev libxmu-dev libxpm-dev python python-argparse dh-exec autotools-dev autoconf
+docker exec --privileged -ti $DOCKER_CONTAINER_ID apt-get -y install libgtk2.0-dev libxmu-dev libxpm-dev alsa python python-argparse dh-exec autotools-dev autoconf
 
 docker exec --privileged -ti $DOCKER_CONTAINER_ID /bin/bash -xec \
     "update-alternatives --set fakeroot /usr/bin/fakeroot-tcp; cd ci-source; dpkg-buildpackage -b -uc -us; mkdir dist; mv ../*.deb dist; chmod -R a+rw dist"
