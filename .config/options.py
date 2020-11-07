@@ -67,7 +67,7 @@ def resolve():
     # alsa is required, only if "sound" is enabled.
     if opt('sound'):
         # if alsa is not installed, will raise exception
-        opt_new_from_pkg('libasound2', 'alsa', pversion = '--atleast-version=1.0.10')
+        opt_new_from_pkg('alsa', 'alsa', pversion = '--atleast-version=1.0.10')
 
     opt_new_from_pkg('gtk2', 'gtk+-2.0', pversion = '--atleast-version=2.24.32')
     opt_new_from_pkg('gmodule2', 'gmodule-2.0')
