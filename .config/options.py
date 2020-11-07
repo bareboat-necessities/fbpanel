@@ -61,11 +61,11 @@ def init():
 # config.h.
 def resolve():
     # If user did not set sound on command line, it is autodetected.
-    #if opt('sound') is None and pkg_exists('libasound2', '--atleast-version=1.0.10'):
-    #    opt_set('sound', True)
+    if opt('sound') is None and pkg_exists('libasound2', '--atleast-version=1.0.10'):
+        opt_set('sound', True)
 
     # alsa is required, only if "sound" is enabled.
-    #if opt('sound'):
+    if opt('sound'):
         # if alsa is not installed, will raise exception
         opt_new_from_pkg('libasound2', 'alsa', pversion = '--atleast-version=1.0.10')
 
