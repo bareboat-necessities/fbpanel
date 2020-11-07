@@ -5,7 +5,7 @@
 export DH_VERBOSE=1
 CFLAGS=$(shell dpkg-buildflags --get CFLAGS)
 LDFLAGS=$(shell dpkg-buildflags --get LDFLAGS)
-LDFLAGS+=-z bindnow
+LDFLAGS+= -z bindnow
 
 %:
 	dh $@
