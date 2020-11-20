@@ -49,6 +49,22 @@ typedef struct {
 
 G_DEFINE_TYPE_WITH_CODE(GtkBgbox, gtk_bgbox, GTK_TYPE_BIN, G_ADD_PRIVATE(GtkBgbox))
 
+// Only request events that will be properly handled. Using GDK_ALL_EVENTS_MASK
+// can have unintended consequences, e.g. it includes GDK_TOUCH_MASK which turns
+// off button press/release events for touch devices and delivers GDK_TOUCH_*
+// events instead.
+#define SUPPORTED_GDK_EVENTS static_cast<GdkEventMask>(                \
+               GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK |           \
+               GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK |      \
+               GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK |     \
+               GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK |       \
+               GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK |             \
+               GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK |         \
+               GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK |            \
+               GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | \
+               GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK |        \
+               GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK)
+               
 static void gtk_bgbox_class_init    (GtkBgboxClass *klass);
 static void gtk_bgbox_init          (GtkBgbox *bgbox);
 static void gtk_bgbox_realize       (GtkWidget *widget);
