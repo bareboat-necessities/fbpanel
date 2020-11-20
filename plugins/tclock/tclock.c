@@ -147,9 +147,12 @@ tclock_constructor(plugin_instance *p)
 
     dc->main = gtk_event_box_new();
     gtk_event_box_set_visible_window(GTK_EVENT_BOX(dc->main), FALSE);
-    if (dc->action || dc->show_calendar)
-        g_signal_connect (G_OBJECT (dc->main), "button_press_event",
+    if (dc->action || dc->show_calendar) {
+        g_signal_connect (G_OBJECT (dc->main), "button-press-event",
               G_CALLBACK (clicked), (gpointer) dc);
+        g_signal_connect (G_OBJECT (dc->main), "button-release-event",
+              G_CALLBACK (clicked), (gpointer) dc);
+    }
 
     dc->clockw = gtk_label_new(NULL);
 

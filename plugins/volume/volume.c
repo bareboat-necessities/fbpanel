@@ -265,7 +265,9 @@ volume_constructor(plugin_instance *p)
     volume_update_gui(c);
     g_signal_connect(G_OBJECT(p->pwid), "scroll-event",
         G_CALLBACK(icon_scrolled), (gpointer) c);
-    g_signal_connect(G_OBJECT(p->pwid), "button_press_event",
+    g_signal_connect(G_OBJECT(p->pwid), "button-press-event",
+        G_CALLBACK(icon_clicked), (gpointer)c);
+    g_signal_connect(G_OBJECT(p->pwid), "button-release-event",
         G_CALLBACK(icon_clicked), (gpointer)c);
     g_signal_connect(G_OBJECT(p->pwid), "enter-notify-event",
         G_CALLBACK(crossed), (gpointer)c);

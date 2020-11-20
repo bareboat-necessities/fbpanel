@@ -919,9 +919,9 @@ tk_build_gui(taskbar_priv *tb, task *tk)
     gtk_container_set_border_width(GTK_CONTAINER(tk->button), 0);
     gtk_widget_add_events (tk->button, GDK_BUTTON_RELEASE_MASK
             | GDK_BUTTON_PRESS_MASK);
-    g_signal_connect(G_OBJECT(tk->button), "button_release_event",
+    g_signal_connect(G_OBJECT(tk->button), "button-release-event",
           G_CALLBACK(tk_callback_button_release_event), (gpointer)tk);
-    g_signal_connect(G_OBJECT(tk->button), "button_press_event",
+    g_signal_connect(G_OBJECT(tk->button), "button-press-event",
            G_CALLBACK(tk_callback_button_press_event), (gpointer)tk);
     g_signal_connect_after (G_OBJECT (tk->button), "leave",
           G_CALLBACK (tk_callback_leave), (gpointer) tk);
@@ -1324,7 +1324,9 @@ tb_make_menu(GtkWidget *widget, taskbar_priv *tb)
         mi = gtk_image_menu_item_new_with_label (buf);
         g_object_set_data(G_OBJECT(mi), "num", GINT_TO_POINTER(i));
         gtk_menu_shell_append (GTK_MENU_SHELL (submenu), mi);
-        g_signal_connect(G_OBJECT(mi), "button_press_event",
+        g_signal_connect(G_OBJECT(mi), "button-press-event",
+            (GCallback)send_to_workspace, tb);
+        g_signal_connect(G_OBJECT(mi), "button-release-event",
             (GCallback)send_to_workspace, tb);
         g_free(buf);
     }

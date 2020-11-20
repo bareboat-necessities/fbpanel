@@ -325,7 +325,9 @@ dclock_constructor(plugin_instance *p)
     gtk_misc_set_padding(GTK_MISC(dc->main), 1, 1);
     gtk_container_add(GTK_CONTAINER(p->pwid), dc->main);
     //gtk_widget_show(dc->clockw);
-    g_signal_connect (G_OBJECT (p->pwid), "button_press_event",
+    g_signal_connect (G_OBJECT (p->pwid), "button-press-event",
+            G_CALLBACK (clicked), (gpointer) dc);
+    g_signal_connect (G_OBJECT (p->pwid), "button-release-event",
             G_CALLBACK (clicked), (gpointer) dc);
     gtk_widget_show_all(dc->main);
     dc->timer = g_timeout_add(1000, (GSourceFunc) clock_update, (gpointer)dc);

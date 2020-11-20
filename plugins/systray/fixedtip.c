@@ -89,10 +89,14 @@ fixed_tip_show (int screen_number,
       gtk_widget_add_events (tip, GDK_BUTTON_PRESS_MASK);
       
       g_signal_connect (G_OBJECT (tip), 
-            "button_press_event",
+            "button-press-event",
             G_CALLBACK (button_press_handler),
             NULL);
-      
+      g_signal_connect (G_OBJECT (tip),
+            "button-release-event",
+            G_CALLBACK (button_press_handler),
+            NULL);
+
       label = gtk_label_new (NULL);
       gtk_label_set_line_wrap (GTK_LABEL (label), TRUE);
       gtk_misc_set_alignment (GTK_MISC (label), 0.5, 0.5);

@@ -188,9 +188,11 @@ wincmd_constructor(plugin_instance *p)
     }
     button = fb_button_new(iname, fname, w, h, 0x202020, NULL);
     gtk_container_set_border_width(GTK_CONTAINER(button), 0);
-    g_signal_connect(G_OBJECT(button), "button_press_event",
+    g_signal_connect(G_OBJECT(button), "button-press-event",
           G_CALLBACK(clicked), (gpointer)wc);
-  
+    g_signal_connect(G_OBJECT(button), "button-release-event",
+          G_CALLBACK(clicked), (gpointer)wc);
+
     gtk_widget_show(button);
     gtk_container_add(GTK_CONTAINER(p->pwid), button);
     if (p->panel->transparent) 
