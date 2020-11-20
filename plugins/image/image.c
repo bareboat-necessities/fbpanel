@@ -51,7 +51,7 @@ image_constructor(plugin_instance *p)
     
     img->mainw = gtk_event_box_new();
     gtk_widget_show(img->mainw);
-    //g_signal_connect(G_OBJECT(img->mainw), "expose_event",
+    //g_signal_connect(G_OBJECT(img->mainw), "expose-event",
     //      G_CALLBACK(gtk_widget_queue_draw), NULL);
     gp = gdk_pixbuf_new_from_file(fname, &err);
     if (!gp) {

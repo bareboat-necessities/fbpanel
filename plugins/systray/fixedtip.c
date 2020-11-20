@@ -82,7 +82,7 @@ fixed_tip_show (int screen_number,
       gtk_container_set_border_width (GTK_CONTAINER (tip), 4);
 
       g_signal_connect (G_OBJECT (tip), 
-            "expose_event",
+            "expose-event",
             G_CALLBACK (expose_handler),
             NULL);
    

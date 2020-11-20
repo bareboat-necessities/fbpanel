@@ -377,7 +377,7 @@ mk_dialog(xconf *oxc)
         (GCallback) dialog_response_event, xc);
     // g_signal_connect (G_OBJECT(dialog), "destroy",
     //  (GCallback) dialog_cancel, xc);
-    g_signal_connect (G_OBJECT(dialog), "delete_event",
+    g_signal_connect (G_OBJECT(dialog), "delete-event",
         (GCallback) dialog_cancel, xc);
 
     gtk_window_set_modal(GTK_WINDOW(dialog), FALSE);

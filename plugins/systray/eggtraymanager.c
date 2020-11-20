@@ -254,9 +254,9 @@ egg_tray_manager_handle_dock_request(EggTrayManager *manager,
     
     g_signal_connect (socket, "realize",
           G_CALLBACK (egg_tray_manager_make_socket_transparent), NULL);
-    g_signal_connect (socket, "expose_event",
+    g_signal_connect (socket, "expose-event",
           G_CALLBACK (egg_tray_manager_socket_exposed), NULL);
-    g_signal_connect_after (socket, "style_set",
+    g_signal_connect_after (socket, "style-set",
           G_CALLBACK (egg_tray_manager_socket_style_set), NULL);
     gtk_widget_show (socket);
 

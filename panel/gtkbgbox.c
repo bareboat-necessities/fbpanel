@@ -179,6 +179,7 @@ gtk_bgbox_realize (GtkWidget *widget)
     attributes.visual = gtk_widget_get_visual (widget);
     attributes.colormap = gtk_widget_get_colormap (widget);
     attributes.wclass = GDK_INPUT_OUTPUT;
+    attributes.event_mask = SUPPORTED_GDK_EVENTS;
 
     attributes_mask = GDK_WA_X | GDK_WA_Y | GDK_WA_VISUAL | GDK_WA_COLORMAP;
 

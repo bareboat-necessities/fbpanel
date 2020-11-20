@@ -204,7 +204,7 @@ read_button(plugin_instance *p, xconf *xc)
         GTK_DEST_DEFAULT_ALL, //GTK_DEST_DEFAULT_HIGHLIGHT,
         target_table, G_N_ELEMENTS (target_table),
         GDK_ACTION_COPY);    
-    g_signal_connect (G_OBJECT(button), "drag_data_received",
+    g_signal_connect (G_OBJECT(button), "drag-data-received",
         G_CALLBACK (drag_data_received_cb),
         (gpointer) &lb->btns[lb->btn_num]);
 
