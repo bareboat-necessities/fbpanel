@@ -53,7 +53,7 @@ G_DEFINE_TYPE_WITH_CODE(GtkBgbox, gtk_bgbox, GTK_TYPE_BIN, G_ADD_PRIVATE(GtkBgbo
 // can have unintended consequences, e.g. it includes GDK_TOUCH_MASK which turns
 // off button press/release events for touch devices and delivers GDK_TOUCH_*
 // events instead.
-#define SUPPORTED_GDK_EVENTS static_cast<GdkEventMask>(                \
+#define SUPPORTED_GDK_EVENTS (                \
                GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK |           \
                GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK |      \
                GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK |     \
@@ -64,7 +64,7 @@ G_DEFINE_TYPE_WITH_CODE(GtkBgbox, gtk_bgbox, GTK_TYPE_BIN, G_ADD_PRIVATE(GtkBgbo
                GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | \
                GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK |        \
                GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK)
-               
+
 static void gtk_bgbox_class_init    (GtkBgboxClass *klass);
 static void gtk_bgbox_init          (GtkBgbox *bgbox);
 static void gtk_bgbox_realize       (GtkWidget *widget);
