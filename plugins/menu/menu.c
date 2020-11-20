@@ -292,6 +292,8 @@ make_button(plugin_instance *p, xconf *xc)
             gtk_bgbox_set_background(m->bg, BG_INHERIT, 0, 0);
         g_signal_connect (G_OBJECT (m->bg), "button-press-event",
             G_CALLBACK (my_button_pressed), p);
+        g_signal_connect (G_OBJECT (m->bg), "button-release-event",
+            G_CALLBACK (my_button_pressed), p);
     }
     g_free(fname);
 }

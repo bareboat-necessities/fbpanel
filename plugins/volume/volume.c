@@ -83,7 +83,7 @@ volume_update_gui(volume_priv *c)
             k->set_icons(&c->meter, names);
         else
             k->set_icons(&c->meter, s_names);
-        DBG("seting %s icons\n", volume ? "normal" : "muted");
+        DBG("setting %s icons\n", volume ? "normal" : "muted");
     }
     c->vol = volume;
     k->set_level(&c->meter, volume);

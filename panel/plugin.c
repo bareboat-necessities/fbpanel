@@ -173,6 +173,8 @@ plugin_start(plugin_instance *this)
         DBG("here\n");
         g_signal_connect (G_OBJECT (this->pwid), "button-press-event",
               (GCallback) panel_button_press_event, this->panel);
+        g_signal_connect (G_OBJECT (this->pwid), "button-release-event",
+              (GCallback) panel_button_press_event, this->panel);
         gtk_widget_show(this->pwid);
         DBG("here\n");
     } else {

@@ -566,6 +566,8 @@ panel_start_gui(panel *p)
         (GCallback) panel_configure_event, p);
     g_signal_connect(G_OBJECT(p->topgwin), "button-press-event",
         (GCallback) panel_button_press_event, p);
+    g_signal_connect(G_OBJECT(p->topgwin), "button-release-event",
+        (GCallback) panel_button_press_event, p);
     g_signal_connect(G_OBJECT(p->topgwin), "scroll-event",
         (GCallback) panel_scroll_event, p);
 
